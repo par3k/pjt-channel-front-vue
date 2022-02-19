@@ -2,7 +2,7 @@ name: CI/CD Docker
 
 on:
   push:
-    brances: [master]
+    branches: [master]
 
 env:
   DOCKER_IMAGE: ghcr.io/par3k/pjt-channel-front-vue # ${{}}은 변수입니다. 본인의 user-name 이 들어갑니다. 
@@ -38,7 +38,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ env.DOCKER_IMAGE }}:latest
+          tags: ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
 
   deploy:
     needs: build
@@ -54,4 +54,4 @@ jobs:
       - name: Docker run
         run: |
           docker ps -q --filter "name=pjt-channel-front-vue" | grep -q . && docker stop pjt-channel-front-vue && docker rm -fv pjt-channel-front-vue
-          docker run -itd -p 5000:80 --name pjt-channel-front-vue --restart always ${{ env.DOCKER_IMAGE }}:latest
+          docker run -itd -p 5000:80 --name pjt-channel-front-vue --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
