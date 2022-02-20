@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="깃액션, 도커 CI/CD 테스트"/>
+  <HelloWorld msg="은수 노트북 테스트"/>
 </template>
 
 <script>
