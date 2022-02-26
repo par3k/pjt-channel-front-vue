@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="02.24 테스트"/>
+  <HelloWorld msg="채민 테스트22 테스트"/>
 </template>
 
 <script>
