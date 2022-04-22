@@ -102,6 +102,7 @@ export default {
   },
   methods: {
     async login() {
+      // 비동기 처리
       const response = await axios.post("/user/login", {
         emailAdr: this.emailAdr, // 로그인 폼에 입력한 이메일,
         userPwd: this.userPwd // 비밀번호를 서버로 보냄
