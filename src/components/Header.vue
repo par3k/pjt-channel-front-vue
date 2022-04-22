@@ -4,7 +4,7 @@
     style="background-color: black"
   >
     <div class="container">
-      <a href="/zipsa" class="navbar-brand logo-text page-scroll">Zipsa</a>
+      <a href="/" class="navbar-brand logo-text page-scroll">Zipsa</a>
       <button
         class="navbar-toggler p-0 border-0"
         type="button"
