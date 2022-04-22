@@ -13,7 +13,7 @@ const routes = [
     redirect: "/zipsa/"
   },
   {
-    path: "/zipsa",
+    path: "/zipsa/",
     name: "Main",
     component: Main
   },
