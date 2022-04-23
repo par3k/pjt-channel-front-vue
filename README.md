@@ -1,4 +1,4 @@
-# pjt-channel-front-vue
+# Ziasa (부동산 공공데이터를 이용한 매물 추천 시스템)
 
 ## Project setup
 ```
