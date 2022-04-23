@@ -11,8 +11,6 @@
           <!-- end of col -->
         </div>
         <!-- end of row -->
-
-
         <div class="row">
           <div class="col-lg-12">
             <!-- Contact Form -->
@@ -61,10 +59,7 @@
                     <div class="row">
                       <div class="col-lg-12" style="color: white">
                         비밀번호를 잊어 버리셨나요? &nbsp;
-                        <a
-                          class="btn-solid-lg page-scroll"
-                          >비밀번호 찾기</a
-                        >
+                        <a class="btn-solid-lg page-scroll">비밀번호 찾기</a>
                       </div>
                       <!-- end of col -->
                     </div>
@@ -108,9 +103,10 @@ export default {
         userPwd: this.userPwd // 비밀번호를 서버로 보냄
       });
       if (response.data) {
-          alert("로그인 성공~~!!");
+        alert("로그인 성공~~!!");
+        console.log(response);
       } else {
-          alert("로그인 실패 ㅜㅜ");
+        alert("로그인 실패 ㅜㅜ");
       }
       //   axios
       //     .post("/user/login", {

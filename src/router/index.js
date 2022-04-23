@@ -10,20 +10,20 @@ const routes = [
   {
     path: "/",
     namd: "Main",
-    redirect: "/zipsa"
+    redirect: "/zipsin"
   },
   {
-    path: "/zipsa",
+    path: "/zipsin",
     name: "Main",
     component: Main
   },
   {
-    path: "/zipsa/user/login",
+    path: "/zipsin/user/login",
     name: "Login",
     component: Login
   },
   {
-    path: "/zipsa/user/regist",
+    path: "/zipsin/user/regist",
     name: "Regist",
     component: Regist
   }

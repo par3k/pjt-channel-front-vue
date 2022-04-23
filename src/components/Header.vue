@@ -4,7 +4,7 @@
     style="background-color: black"
   >
     <div class="container">
-      <a href="/" class="navbar-brand logo-text page-scroll">Zipsa</a>
+      <a href="/" class="navbar-brand logo-text page-scroll">Zipsin</a>
       <button
         class="navbar-toggler p-0 border-0"
         type="button"
@@ -46,7 +46,7 @@
 
           <div v-if="!lgnSts">
             <li class="nav-item">
-              <router-link to="/zipsa/user/login" class="nav-link page-scroll"
+              <router-link to="/zipsin/user/login" class="nav-link page-scroll"
                 >로그인</router-link
               >
             </li>
@@ -54,7 +54,7 @@
 
           <div v-if="!lgnSts">
             <li class="nav-item">
-              <router-link to="/zipsa/user/regist" class="nav-link page-scroll"
+              <router-link to="/zipsin/user/regist" class="nav-link page-scroll"
                 >회원가입</router-link
               >
             </li>

@@ -19,31 +19,31 @@
                 <input
                   type="text"
                   class="form-control-input"
-                  id="username"
-                  ref="username"
-                  placeholder=""
-                  v-model="username"
-                />
-                <label class="label-control">이름</label>
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control-input"
-                  id="email"
-                  ref="email"
-                  v-model="email"
+                  id="emailAdr"
+                  ref="emailAdr"
+                  v-model="emailAdr"
                 />
                 <label class="label-control">이메일 주소</label>
               </div>
               <div class="form-group">
                 <input
+                  type="text"
+                  class="form-control-input"
+                  id="userNm"
+                  ref="userNm"
+                  placeholder=""
+                  v-model="userNm"
+                />
+                <label class="label-control">이름</label>
+              </div>
+              <div class="form-group">
+                <input
                   type="password"
                   class="form-control-input"
-                  id="userpwd"
-                  ref="userpwd"
+                  id="userPwd"
+                  ref="userPwd"
                   placeholder=""
-                  v-model="userpwd"
+                  v-model="userPwd"
                 />
                 <label class="label-control">비밀번호</label>
               </div>
@@ -51,20 +51,32 @@
                 <input
                   type="password"
                   class="form-control-input"
-                  ref="pwdcheck"
-                  v-model="pwdcheck"
+                  ref="pwdChk"
+                  v-model="pwdChk"
                 />
                 <label class="label-control">비밀번호 확인</label>
+              </div>
+              <div class="form-group">
+                <select class="form-control-input" v-model="userGender">
+                  <option
+                    v-for="(item, index) in genderList"
+                    :key="index"
+                    :value="item.value"
+                  >
+                    {{ item.text }}
+                  </option>
+                </select>
+                <label class="label-control">성별</label>
               </div>
               <div class="form-group">
                 <input
                   type="text"
                   class="form-control-input"
-                  id="phoneno"
-                  ref="phoneno"
-                  v-model="phoneno"
+                  id="userBirdD"
+                  ref="userBirdD"
+                  v-model="userBirdD"
                 />
-                <label class="label-control">전화번호</label>
+                <label class="label-control">생년월일</label>
               </div>
               <br /><br />
               <div class="form-group">
@@ -96,11 +108,16 @@ import axios from "@/util/common";
 export default {
   data() {
     return {
-      username: "",
-      email: "",
-      userpwd: "",
-      pwdcheck: "",
-      phoneno: ""
+      emailAdr: "",
+      userPwd: "",
+      userNm: "",
+      pwdChk: "",
+      userGender: "",
+      userBirdD: "",
+      genderList: [
+        { value: "M", text: "남성" },
+        { value: "F", text: "여성" }
+      ]
     };
   },
   methods: {
@@ -108,30 +125,35 @@ export default {
       let err = true;
       let msg = "";
 
-      !this.username &&
+      !this.userNm &&
         ((msg = "이름을 입력해주세요"),
         (err = false),
-        this.$refs.username.focus());
+        this.$refs.userNm.focus());
       err &&
-        !this.email &&
+        !this.emailAdr &&
         ((msg = "이메일을 입력해주세요"),
         (err = false),
-        this.$refs.email.focus());
+        this.$refs.emailAdr.focus());
       err &&
-        !this.userpwd &&
+        !this.userPwd &&
         ((msg = "비밀번호를 입력해주세요"),
         (err = false),
-        this.$refs.userpwd.focus());
+        this.$refs.userPwd.focus());
       err &&
-        !this.pwdcheck &&
+        !this.pwdChk &&
         ((msg = "비밀번호를 입력해주세요"),
         (err = false),
-        this.$refs.pwdcheck.focus());
+        this.$refs.pwdChk.focus());
       err &&
-        !this.phoneno &&
-        ((msg = "휴대전화 번호를 입력해주세요"),
+        !this.userGender &&
+        ((msg = "성별을 선택해주세요"),
         (err = false),
-        this.$refs.phoneno.focus());
+        this.$refs.userGender.focus());
+      err &&
+        !this.userBirdD &&
+        ((msg = "생년월일을 입력해주세요"),
+        (err = false),
+        this.$refs.userBirdD.focus());
 
       if (!err) alert(msg);
       else this.regist();
@@ -139,20 +161,20 @@ export default {
 
     regist() {
       axios
-        .post("/admin/user", {
-          username: this.username,
-          email: this.email,
-          userpwd: this.userpwd,
-          phoneno: this.phoneno
+        .post("/user/userRegist", {
+          userNm: this.userNm,
+          emailAdr: this.emailAdr,
+          userPwd: this.userPwd,
+          userGender: this.userGender,
+          userBirdD: this.userBirdD
         })
         .then(res => {
-          if (res.data === "SUCCESS") {
+          if (res.data === 1) {
             alert("회원가입에 성공했습니다.");
-            this.$router.push("/happyhouse/user/login");
+            this.$router.push("/zipsin/user/login");
           } else {
-            alert("이메일이 중복됩니다. 다시 시도하세요");
-            this.$refs.email.focus();
-            this.$router.push("/happyhouse/user/regist");
+            alert("이미 가입한 이메일 주소입니다. 다시 시도하세요");
+            this.$router.push("/zipsin/user/regist");
           }
         });
     }
@@ -160,4 +182,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+input {
+  text-align: center;
+}
+</style>
