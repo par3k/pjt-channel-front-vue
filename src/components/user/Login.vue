@@ -86,7 +86,7 @@
 
 <script>
 import axios from "@/util/common";
-import "@/assets/css/common-styles.css";
+
 export default {
   data() {
     return {

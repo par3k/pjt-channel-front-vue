@@ -19,13 +19,13 @@
       >
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="" class="nav-link page-scroll">매물검색</a>
+            <a href="/zipsin#findRealestate" class="nav-link page-scroll">매물검색</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link page-scroll">서비스소개</a>
+            <a href="/zipsin#projectIntroduce" class="nav-link page-scroll">서비스소개</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link page-scroll">팀원소개</a>
+            <a href="/zipsin#teamIntroduce" class="nav-link page-scroll">팀원소개</a>
           </li>
           <li class="nav-item">
             <router-link to="" class="nav-link page-scroll">게시판</router-link>
@@ -95,7 +95,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-@import "../assets/css/header.css";
-</style>
