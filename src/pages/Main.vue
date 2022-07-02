@@ -21,7 +21,7 @@ export default {
     topPage,
     findRealestate,
     projectIntroduce,
-    teamIntroduce,
+    teamIntroduce
   }
 };
 </script>
